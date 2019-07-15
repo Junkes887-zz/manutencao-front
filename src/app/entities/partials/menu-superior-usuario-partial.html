@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-controller="MenuSuperiorController as vm">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/#/menu-usuario">manutencao</a>
@@ -17,7 +17,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/#/">Sair</a>
+                    <a href="/#/" ng-click="vm.sair()">Sair</a>
                 </li>
             </ul>
         </div>

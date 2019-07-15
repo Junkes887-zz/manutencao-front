@@ -19,28 +19,18 @@
       senha: ""
     }
 
-    vm.abrirModalCadastroUsuario = function () {
-      $uibModal.open({
-        ariaLabelledBy: 'Cadastro de usuário',
-        ariaDescribedBy: 'modal-body',
-        templateUrl: 'app/entities/usuario/novo-usuario/novo-usuario.html',
-        controller: 'NovoUsuarioController',
-        controllerAs: 'vm',
-        size: 'md'
-      });
-    }
-
     vm.logar = function() {
       if (!vm.loginValido()) {
         toastr.error("Nem todas as informações de login estão corretas.");
         return;
       }
 
-      var logar = Restangular.all("usuarios");
+      var logar = Restangular.all("usuarios/login");
       logar.post(vm.login).then(function(retornoLogin) {
         if (retornoLogin.sucesso) {
-          vm.armazenarLocalmenteUsuarioLogado(retornoLogin);
-          retornoLogin.objeto.perfil === "USUARIO" ? $location.path('menu-usuario') : $location.path('menu-fornecedor');
+          vm.armazenarLocalmenteUsuarioLogado(retornoLogin.objeto);
+          //retornoLogin.objeto.perfil === "USUARIO" ? $location.path('menu-usuario') : $location.path('menu-fornecedor');
+          $location.path('menu-usuario');
         } else {
           toastr.error(retornoLogin.mensagem);
         }
@@ -52,7 +42,17 @@
     }
 
     vm.armazenarLocalmenteUsuarioLogado = function(retornoLogin) {
-      window.localStorage.setItem('usuarioLogado', JSON.stringify(retornoLogin.objeto.id));
+      window.localStorage.setItem('usuarioLogado', JSON.stringify(retornoLogin));
     }
+
+    function inicializar() {
+      var usuarioLogado = JSON.parse(window.localStorage.getItem('usuarioLogado'));
+      console.log(usuarioLogado);
+      if (usuarioLogado) {
+        vm.login = usuarioLogado;
+        vm.logar();
+      }
+    }
+    inicializar();
   }
 })();
