@@ -16,6 +16,15 @@
       .when('/menu-fornecedor', {
         templateUrl: 'app/entities/fornecedor/menu-fornecedor/menu-fornecedor.html'
       })
+      .when('/home-adm', {
+        templateUrl: 'app/entities/home/home-adm.html'
+      })
+      .when('/home-usuario', {
+        templateUrl: 'app/entities/home/home-usuario.html'
+      })
+      .when('/listar-usuarios', {
+        templateUrl: 'app/entities/usuario/listar-usuarios/listar-usuarios.html'
+      })
       .when('/gerenciar-produtos', {
         templateUrl: 'app/entities/produto/gerenciar-produtos/gerenciar-produtos.html'
       })

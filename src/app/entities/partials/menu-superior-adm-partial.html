@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default" ng-controller="MenuSuperiorController as vm">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#/home-adm">Manutencao</a>
+        </div>
+        <div id="navbar" class="">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/#/listar-usuarios">Usuarios</a>
+                </li>
+                <li>
+                    <a href="/#/gerenciar-produtos">Serviços</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <img src="../app/images/boss.png" width="50" height="50">
+                </li>
+                <li>
+                    <h3>{{vm.nomeUsuarioLogado}}</h3>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <a href="/#/" ng-click="vm.sair()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

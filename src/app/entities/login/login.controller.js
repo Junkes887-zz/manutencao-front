@@ -29,8 +29,7 @@
       logar.post(vm.login).then(function(retornoLogin) {
         if (retornoLogin.sucesso) {
           vm.armazenarLocalmenteUsuarioLogado(retornoLogin.objeto);
-          //retornoLogin.objeto.perfil === "USUARIO" ? $location.path('menu-usuario') : $location.path('menu-fornecedor');
-          $location.path('menu-usuario');
+          retornoLogin.objeto.permissao === 1 ? $location.path('home-usuario') : $location.path('home-adm');
         } else {
           toastr.error(retornoLogin.mensagem);
         }
