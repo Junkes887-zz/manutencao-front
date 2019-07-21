@@ -10,32 +10,17 @@
       .when('/', {
         templateUrl: 'app/entities/login/login.html'
       })
-      .when('/menu-usuario', {
-        templateUrl: 'app/entities/usuario/menu-usuario/menu-usuario.html'
-      })
-      .when('/menu-fornecedor', {
-        templateUrl: 'app/entities/fornecedor/menu-fornecedor/menu-fornecedor.html'
-      })
-      .when('/home-adm', {
-        templateUrl: 'app/entities/home/home-adm.html'
-      })
-      .when('/home-usuario', {
-        templateUrl: 'app/entities/home/home-usuario.html'
+      .when('/home', {
+        templateUrl: 'app/entities/home/home.html'
       })
       .when('/listar-usuarios', {
         templateUrl: 'app/entities/usuario/listar-usuarios/listar-usuarios.html'
       })
-      .when('/gerenciar-produtos', {
-        templateUrl: 'app/entities/produto/gerenciar-produtos/gerenciar-produtos.html'
+      .when('/listar-servicos', {
+        templateUrl: 'app/entities/usuario/listar-servicos/listar-servicos.html'
       })
-      .when('/produtos-cotados', {
-        templateUrl: 'app/entities/produto/produtos-cotados/produtos-cotados.html'
-      })
-      .when('/gerenciar-lances', {
-        templateUrl: 'app/entities/fornecedor/gerenciar-lances/gerenciar-lances.html'
-      })
-      .when('/listar-fornecedores', {
-        templateUrl: 'app/entities/usuario/listar-fornecedores/listar-fornecedores.html'
+      .when('/listar-clientes', {
+        templateUrl: 'app/entities/cliente/listar-clientes/listar-clientes.html'
       })
       .otherwise({
         redirectTo: '/'

@@ -3,19 +3,19 @@
 
     angular
         .module('manutencao')
-        .controller('ListarUsuariosController', ListarUsuariosController);
+        .controller('ListarClientesController', ListarClientesController);
 
-    ListarUsuariosController.$inject = [
+    ListarClientesController.$inject = [
         '$uibModal',
         'Restangular',
         'toastr'
     ];
 
-    function ListarUsuariosController($uibModal,Restangular, toastr) {
+    function ListarClientesController($uibModal, Restangular, toastr) {
         var vm = this;
 
-        vm.listarUsuarios = function () {
-            var usuarios = Restangular.all("usuario/listar-usuarios");
+        vm.listarClientes = function () {
+            var usuarios = Restangular.all("cliente/listar-clientes");
             usuarios.post().then(function (response) {
                 if (response.sucesso) {
                     vm.gridOptions.data = response.objeto;
@@ -25,12 +25,12 @@
             });
         }
 
-        vm.abrirModalCriarUsuario = function () {
+        vm.abrirModalCriarCliente = function () {
             $uibModal.open({
-                ariaLabelledBy: 'Usuario',
+                ariaLabelledBy: 'Cliente',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'app/entities/usuario/criar-usuario/criar-usuario.html',
-                controller: 'CriarUsuarioController',
+                templateUrl: 'app/entities/cliente/criar-cliente/criar-cliente.html',
+                controller: 'CriarClienteController',
                 controllerAs: 'vm',
                 size: 'md',
                 resolve: {
@@ -39,30 +39,30 @@
                     }
                 }
             }).result.then(function () {
-                vm.listarUsuarios();
+                vm.listarClientes();
             });
         }
 
-        vm.abrirModalEditarUsuario = function(usuario) {
+        vm.abrirModalEditarCliente = function (cliente) {
             $uibModal.open({
-                ariaLabelledBy: 'Usuario',
+                ariaLabelledBy: 'Clientes',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'app/entities/usuario/editar-usuario/editar-usuario.html',
-                controller: 'EditarUsuarioController',
+                templateUrl: 'app/entities/cliente/editar-cliente/editar-cliente.html',
+                controller: 'EditarClienteController',
                 controllerAs: 'vm',
                 size: 'md',
                 resolve: {
-                    usuario: function() {
-                        return usuario;
+                    cliente: function () {
+                        return cliente;
                     }
                 }
-            }).result.then(function() {
-                vm.listarUsuarios();
+            }).result.then(function () {
+                vm.listarClientes();
             });
         }
 
         vm.gridOptions = {
-            data: vm.listarUsuarios(),
+            data: vm.listarClientes(),
             enableFiltering: true,
             enableColumnMenus: false,
             paginationPageSizes: [10, 25, 50, 100, 250, 500],
@@ -71,7 +71,7 @@
                 width: '5%',
                 enableFiltering: false,
                 cellTemplate: '<div ng-class="\'ui-grid-cell-contents text-center\'">\
-                                \<button type="button" ng-click="grid.appScope.vm.abrirModalEditarUsuario(row.entity)" ng-class="\'btn btn-xs label label-warning\'">\
+                                \<button type="button" ng-click="grid.appScope.vm.abrirModalEditarCliente(row.entity)" ng-class="\'btn btn-xs label label-warning\'">\
                                     Editar </div>\
                                 </button>\
                             </div>'
@@ -79,27 +79,27 @@
                 width: '10%',
                 name: 'Código',
                 field: 'id',
-                type: 'number'
+                type: 'text'
             }, {
                 width: '25%',
                 name: 'Nome',
                 field: 'nome',
-                type: 'string'
-            }, {
-                width: '25%',
-                name: 'senha',
-                field: 'senha',
-                type: 'string'
+                type: 'text'
             }, {
                 width: '25%',
                 name: 'Email',
                 field: 'email',
-                type: 'string'
+                type: 'text'
             }, {
                 width: '17%',
-                name: 'Permissão',
-                field: 'permissao',
-                type: 'string'
+                name: 'Endereço',
+                field: 'endereco',
+                type: 'text'
+            }, {
+                width: '17%',
+                name: 'Telefone',
+                field: 'telefone',
+                type: 'text'
             }]
         }
     }

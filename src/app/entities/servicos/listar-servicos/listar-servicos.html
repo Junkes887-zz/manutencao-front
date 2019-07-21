@@ -1,9 +1,9 @@
-<div ng-controller="ListarUsuariosController as vm" class="container">
-    <div ng-include="'app/entities/menu/menu-superior.html'"></div>
+<div ng-controller="ListarServicosController as vm" class="container">
+    <div ng-include="'app/entities/partials/menu-superior-adm-partial.html'"></div>
     <nav aria-label="...">
         <ul class="pager">
             <li class="next">
-                <button type="button" class="btn btn-success btn-block" ng-click="vm.abrirModalCriarUsuario()">Novo usuario</button>
+                    <button type="button" class="btn btn-success btn-block" ng-click="vm.abrirModalGerarServico(null, false)">Gerar serviço</button>                    
             </li>
         </ul>
     </nav>
@@ -12,4 +12,3 @@
             ui-grid-save-state ui-grid-pagination ui-grid-auto-resize ui-grid-resize-columns ui-grid-grouping>
         </div>
     </div>
-</div>

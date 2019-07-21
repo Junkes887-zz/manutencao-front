@@ -27,7 +27,7 @@
     }
 
     vm.editarUsuario = function () {
-      var editarUsuario = Restangular.all("usuarios/editar-usuario");
+      var editarUsuario = Restangular.all("usuario/editar-usuario"); 
       editarUsuario.post(vm.usuario).then(function (retornoCadastro) {
         if (retornoCadastro.sucesso) {
           toastr.success(retornoCadastro.mensagem);

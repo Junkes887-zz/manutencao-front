@@ -3,20 +3,20 @@
 
     angular
         .module('manutencao')
-        .controller('ListarUsuariosController', ListarUsuariosController);
+        .controller('abrirModalGerarServico', abrirModalGerarServico);
 
-    ListarUsuariosController.$inject = [
+    abrirModalGerarServico.$inject = [
         '$uibModal',
         'Restangular',
         'toastr'
     ];
 
-    function ListarUsuariosController($uibModal,Restangular, toastr) {
+    function abrirModalGerarServico($uibModal,Restangular, toastr) {
         var vm = this;
 
-        vm.listarUsuarios = function () {
-            var usuarios = Restangular.all("usuario/listar-usuarios");
-            usuarios.post().then(function (response) {
+        vm.listarServico = function () {
+            var servico = Restangular.all("servico/listar-servico");
+            servico.post().then(function (response) {
                 if (response.sucesso) {
                     vm.gridOptions.data = response.objeto;
                 } else {
@@ -25,25 +25,25 @@
             });
         }
 
-        vm.abrirModalCriarUsuario = function () {
+        vm.abrirModalGerarServico = function () {
             $uibModal.open({
                 ariaLabelledBy: 'Usuario',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'app/entities/usuario/criar-usuario/criar-usuario.html',
-                controller: 'CriarUsuarioController',
+                templateUrl: 'app/entities/servico/criar-servico/criar-servico.html',
+                controller: 'CriarServicoController',
                 controllerAs: 'vm',
                 size: 'md',
                 resolve: {
-                    usuario: function () {
-                        return  ;
+                    usuario: function() {
+                        return usuario;
                     }
                 }
-            }).result.then(function () {
+            }).result.then(function() {
                 vm.listarUsuarios();
             });
         }
 
-        vm.abrirModalEditarUsuario = function(usuario) {
+        vm.abrirModalUsuario = function(usuario) {
             $uibModal.open({
                 ariaLabelledBy: 'Usuario',
                 ariaDescribedBy: 'modal-body',
@@ -71,7 +71,7 @@
                 width: '5%',
                 enableFiltering: false,
                 cellTemplate: '<div ng-class="\'ui-grid-cell-contents text-center\'">\
-                                \<button type="button" ng-click="grid.appScope.vm.abrirModalEditarUsuario(row.entity)" ng-class="\'btn btn-xs label label-warning\'">\
+                                \<button type="button" ng-click="grid.appScope.vm.abrirModalUsuario(row.entity, true)" ng-class="\'btn btn-xs label label-warning\'">\
                                     Editar </div>\
                                 </button>\
                             </div>'
@@ -79,27 +79,27 @@
                 width: '10%',
                 name: 'Código',
                 field: 'id',
-                type: 'number'
+                type: 'text'
             }, {
                 width: '25%',
                 name: 'Nome',
                 field: 'nome',
-                type: 'string'
+                type: 'text'
             }, {
                 width: '25%',
                 name: 'senha',
                 field: 'senha',
-                type: 'string'
+                type: 'text'
             }, {
                 width: '25%',
                 name: 'Email',
                 field: 'email',
-                type: 'string'
+                type: 'text'
             }, {
                 width: '17%',
                 name: 'Permissão',
                 field: 'permissao',
-                type: 'string'
+                type: 'text'
             }]
         }
     }

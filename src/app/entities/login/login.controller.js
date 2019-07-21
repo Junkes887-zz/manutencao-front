@@ -25,11 +25,11 @@
         return;
       }
 
-      var logar = Restangular.all("usuarios/login");
+      var logar = Restangular.all("usuario/login");
       logar.post(vm.login).then(function(retornoLogin) {
         if (retornoLogin.sucesso) {
           vm.armazenarLocalmenteUsuarioLogado(retornoLogin.objeto);
-          retornoLogin.objeto.permissao === 1 ? $location.path('home-usuario') : $location.path('home-adm');
+          $location.path('home');
         } else {
           toastr.error(retornoLogin.mensagem);
         }

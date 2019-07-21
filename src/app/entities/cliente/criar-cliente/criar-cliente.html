@@ -1,0 +1,27 @@
+<div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Criar Cliente</h4>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <form>
+            <form-group>
+                <label>Nome:</label>
+                <input class="form-control" type="text" ng-model="vm.cliente.nome">
+            </form-group>
+            <form-group>
+                <label>E-mail:</label>
+                <input class="form-control" type="text" ng-model="vm.cliente.email" placeholder="Ex.: exemplo@gmail.com">
+            </form-group>
+            <form-group>
+                <label>Endereço:</label>
+                <input class="form-control" type="text" ng-model="vm.cliente.endereco">
+            </form-group>
+            <form-group>
+                <label>Telefone:</label>
+                <input class="form-control" type="text" ng-model="vm.cliente.telefone" placeholder="Ex.: (00) 0000-0000">
+            </form-group>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" ng-click="$dismiss()">Sair</button>
+        <button type="button" class="btn btn-success" ng-click="vm.criarCliente()">Salvar</button>
+    </div>

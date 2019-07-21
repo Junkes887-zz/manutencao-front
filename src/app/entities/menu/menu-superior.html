@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default" ng-controller="MenuSuperiorController as vm">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#/home">Manutencao</a>
+        </div>
+        <div id="navbar" class="">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ng-hide="vm.usuarioLogado.permissao !== 'ADMINISTRADOR'" href="/#/listar-usuarios">Usuarios</a>
+                </li>
+                <li>
+                    <a href="/#/listar-servicos">Serviços</a>
+                </li>
+                <li>
+                    <a href="/#/listar-clientes">Clientes</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="vm.usuarioLogado.permissao !== 'ADMINISTRADOR'">
+                    <img src="../app/images/adm.png" width="50" height="50">
+                </li>
+                <li ng-hide="vm.usuarioLogado.permissao == 'ADMINISTRADOR'">
+                    <img src="../app/images/user.png" width="50" height="50">
+                </li>
+                <li>
+                    <h3>{{vm.usuarioLogado.nome}}</h3>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <a href="/#/" ng-click="vm.sair()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

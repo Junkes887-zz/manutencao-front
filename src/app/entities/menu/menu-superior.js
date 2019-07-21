@@ -7,7 +7,7 @@
 
   function MenuSuperiorController() {
     var vm = this;
-    vm.nomeUsuarioLogado = JSON.parse(window.localStorage.getItem('usuarioLogado')).nome;
+    vm.usuarioLogado = JSON.parse(window.localStorage.getItem('usuarioLogado')); 
 
     vm.sair = function (retornoLogin) {
       window.localStorage.removeItem('usuarioLogado');
