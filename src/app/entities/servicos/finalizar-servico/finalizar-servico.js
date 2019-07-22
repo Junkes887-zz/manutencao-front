@@ -20,7 +20,7 @@
             vm.servico = {
                 id: servico.id,
                 data_ini: servico.data_ini,
-                data_fim: servico.data_fim,
+                data_fim: new Date().toLocaleString(),
                 descricao: servico.descricao,
                 id_cliente: servico.id_cliente,
                 cliente: servico.cliente,

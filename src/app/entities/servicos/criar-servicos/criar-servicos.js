@@ -41,14 +41,10 @@
           }
 
         vm.criarServico = function () {
-            // if (vm.listaClientes < 1) {
-            //     toastr.error("Selecione um cliente!");
-            //     return;
-            // }
-            // if (vm.listaClientes.length > 1) {
-            //     toastr.error("Selecione somente um cliente!");
-            //     return;
-            // }
+            if (!vm.servico.id_cliente) {
+                toastr.error("Selecione um cliente!");
+                return;
+            }
             if (!vm.servico.prioridade) {
                 toastr.error("Selecione uma prioridade!");
                 return;
@@ -66,12 +62,8 @@
                 return;
             }
 
-
             vm.servico.id_cliente = vm.listaClientes[0].id;
             vm.servico.cliente = vm.listaClientes[0].nome;
-
-
-
             var criarServico = Restangular.all("servico/criar-servico");
             criarServico.post(vm.servico).then(function (retornoCadastro) {
                 if (retornoCadastro.sucesso) {

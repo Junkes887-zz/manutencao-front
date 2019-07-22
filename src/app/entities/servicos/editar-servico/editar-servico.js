@@ -49,6 +49,27 @@
         }
 
         vm.editarServico = function () {
+            if (!vm.servico.id_cliente) {
+                toastr.error("Selecione um cliente!");
+                return;
+            }
+            if (!vm.servico.prioridade) {
+                toastr.error("Selecione uma prioridade!");
+                return;
+            }
+            if (!vm.servico.marca) {
+                toastr.error("O campo marca não pode ser nulo!");
+                return;
+            }
+            if (!vm.servico.tipo) {
+                toastr.error("O campo tipo não pode ser nulo!");
+                return;
+            }
+            if (!vm.servico.descricao) {
+                toastr.error("O campo descricao não pode ser nulo!");
+                return;
+            }
+
             vm.servico.id_cliente = vm.servico.cliente.id;
             vm.servico.cliente = vm.servico.cliente.nome;
             var editarServico = Restangular.all("servico/editar-servico");

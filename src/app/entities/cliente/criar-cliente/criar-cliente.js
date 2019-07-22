@@ -26,7 +26,10 @@
             if (!vm.cliente.nome) {
                 toastr.error("O campo nome é obrigatório!");
                 return; 
-            } if (!vm.telefoneValido()) {
+            } if (!vm.cliente.endereco) {
+                toastr.error("O campo endereço é obrigatório!");
+                return; 
+            }  if (!vm.telefoneValido()) {
                 toastr.error("O numero de telefone não é valido!");
                 return;
             } if (!vm.emailValido()) {
