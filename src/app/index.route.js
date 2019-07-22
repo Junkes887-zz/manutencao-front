@@ -17,7 +17,7 @@
         templateUrl: 'app/entities/usuario/listar-usuarios/listar-usuarios.html'
       })
       .when('/listar-servicos', {
-        templateUrl: 'app/entities/usuario/listar-servicos/listar-servicos.html'
+        templateUrl: 'app/entities/servicos/listar-servicos/listar-servicos.html'
       })
       .when('/listar-clientes', {
         templateUrl: 'app/entities/cliente/listar-clientes/listar-clientes.html'

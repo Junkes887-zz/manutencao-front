@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Finalizar serviço</h4>
+</div>
+<div class="modal-body" id="modal-body">
+    <form>
+        <form-group>
+            <label>Observação:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.observacao">
+        </form-group>
+        <form-group>
+            <label>Valor:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.valor" placeholder="Ex.: R$ 0,00">
+        </form-group>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" ng-click="$dismiss()">Sair</button>
+    <button type="button" class="btn btn-success" ng-click="vm.finalizarServico()">Salvar</button>
+</div>

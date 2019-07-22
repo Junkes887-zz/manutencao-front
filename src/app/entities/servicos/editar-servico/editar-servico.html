@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Editar serviço</h4>
+</div>
+<div class="modal-body" id="modal-body">
+    <form>
+        <form-group>
+            <label>Cliente:</label>
+            <select class="form-control" data-ng-options="cliente.nome for cliente in vm.listaClientes track by cliente.nome" ng-model="vm.servico.cliente">
+                <option selected="vm.servico.cliente">{{vm.servico.cliente.nome}}</option>
+            </select>
+        </form-group>
+        <form-group>
+            <label>Prioridade:</label>
+            <select class="form-control" ng-model="vm.servico.prioridade">
+                <option value="ALTA">Alta</option>
+                <option value="MÉDIA">Média</option>
+                <option value="BAIXA">Baixa</option>
+            </select>
+        </form-group>
+        <form-group>
+            <label>Tipo de equipamento:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.tipo">
+        </form-group>
+        <form-group>
+            <label>Marca:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.marca">
+        </form-group>
+        <form-group>
+            <label>Descrição:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.descricao">
+        </form-group>
+        <form-group>
+            <label>Valor:</label>
+            <input class="form-control" type="text" ng-model="vm.servico.valor" placeholder="Ex.: R$ 0,00">
+        </form-group>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" ng-click="$dismiss()">Sair</button>
+    <button type="button" class="btn btn-success" ng-click="vm.editarServico()">Salvar</button>
+</div>
