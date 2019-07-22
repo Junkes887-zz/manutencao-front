@@ -1,1 +1,1 @@
-Para startar 'gulp serve'
+Para startar npm i + bower i + gulp serve
